@@ -3,10 +3,10 @@ import java.util.Random;
 //Make the following updates to the BankAccount super class:
 //
 //1) Make the BankAccount super class an abstract class and make applyInterest an abstract method.
-//
-//2)  The BankAccount super class shall implement the Comparable Interface. You shall implement the compareTo method to provide the means to sort the bank accounts in the ascending order of the account balance.
-//
-//Identify the objects for this application and define each class attribute with proper access qualifier.  You can use the “main” method shown below to test your application. The expected output is also provided.
+//2)  The BankAccount super class shall implement the Comparable Interface. 
+//    You shall implement the compareTo method to provide the means to sort the 
+//    bank accounts in the ascending order of the account balance.
+
 
 public class BankAccount implements Comparable<BankAccount>{
 
@@ -76,6 +76,7 @@ public class BankAccount implements Comparable<BankAccount>{
         System.out.println(this.theCustomer + ", Balance $" + balance);
     }
 
+    //How do I compare/sort the balance of my account ArrayList is ascending order?
     @Override
     public int compareTo(BankAccount acct) {
         if (this.balance == acct.balance) {

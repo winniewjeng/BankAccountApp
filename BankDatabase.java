@@ -1,8 +1,6 @@
-//For this project, you shall define a new class BankDatabase. The BankDatabase 
-//contains the bank account information for all accounts including saving accounts 
-//and checking accounts.   You can consider using an ArrayList in which 
-//case its size can grow automatically as new bank accounts are added.  BankDatabase 
-//class implements the following methods:
+//Define a new class BankDatabase. The BankDatabase contains the bank account 
+//information for all accounts including saving accounts and checking accounts. 
+//Use an ArrayList in which case its size can grow automatically as new bank accounts are added.  
 
 import java.util.ArrayList;
 import java.util.Arrays;
