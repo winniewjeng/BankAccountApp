@@ -1,37 +1,69 @@
 //For this project, you shall define a new class BankDatabase. The BankDatabase 
 //contains the bank account information for all accounts including saving accounts 
-//and checking accounts.  The customer names are passed as “firstname lastname”.
-//Your application must split the string into two separate strings for first name a
-//nd last name (Hint: use the split() method).  If you decide to use an array to 
-//store the bank accounts, you can assume there will be maximum of 100 bank accounts 
-//in the Bank Database.  Alternatively, you can consider using an ArrayList in which 
+//and checking accounts.   You can consider using an ArrayList in which 
 //case its size can grow automatically as new bank accounts are added.  BankDatabase 
 //class implements the following methods:
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class BankDatabase{
-    
+public class BankDatabase {
+
+    private BankAccount aNewAcct;
+    private ArrayList<BankAccount> acctList = new ArrayList<BankAccount>();
+
     //Constructor
-    public BankDatabase() {}
-    
+    public BankDatabase() {
+    }
+
     //This method creates a checking account
-    void creatCheckingAccount(String customerName, String ssn, float deposit) {
+    void createCheckingAccount(String customerName, String ssn, double deposit) {
+
+        //Parse the Customer's name into first and last
+        String firstName = "", lastName = "";
+        String[] arrOfNames = customerName.split(" ", 2);
+        firstName = arrOfNames[0];
+        lastName = arrOfNames[1];
+
+        //Create a checking account
+        aNewAcct = new CheckingAccount(firstName, lastName, ssn, deposit);
+        acctList.add(aNewAcct);
+//        System.out.println("The Current List size is: " + acctList.size());
+
     }
-    
+
     //This method creates a saving account
-    void creatSavingAccount(String customerName, String ssn, float deposit) {
+    void createSavingAccount(String customerName, String ssn, double deposit) {
+        //Parse the Customer's name into first and last
+        String firstName = " ", lastName = " ";
+        String[] arrOfNames = customerName.split(" ", 2);
+        firstName = arrOfNames[0];
+        lastName = arrOfNames[1];
+
+        //Create a saving account
+        aNewAcct = new SavingAccount(firstName, lastName, ssn, deposit);
+        acctList.add(aNewAcct);
+//        System.out.println("The Current List size is: " + acctList.size());
     }
-    
+
+    //I have problem returning the element of my ArrayList
+
+    @Override
+    public String toString() {
+        return "account list: " + acctList.toString();
+        
+    }
     //This method prints the bank account information in the database in ascending order of the account balances.
-    void print() {}
-    
+    void print() {
+        System.out.println(acctList.get(0));
+        System.out.println(acctList.get(1));
+        System.out.println(acctList.get(2));
+    }
+
     //This methods applies interest to all bank accounts. The interest for each type of account is the same as project 5.
-    void applyIntrest() {}
+    void applyInterest() {
+        aNewAcct.applyInterest();
+    }
 
- 
-    
-    
-
-    
-    
 }

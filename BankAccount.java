@@ -13,14 +13,15 @@ public class BankAccount implements Comparable<BankAccount>{
     private Customer theCustomer;
     private String acctNumber;
     private double balance;
+    
 
-    public BankAccount(Customer theCustomer, double initialDeposit) {
-        this.theCustomer = theCustomer;
-        acctNumber = AcctNumGenerator();
-        balance = initialDeposit;
-        System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
-        System.out.println(theCustomer + ", Balance " + balance);
-    }
+//    public BankAccount(Customer theCustomer, double initialDeposit) {
+//        this.theCustomer = theCustomer;
+//        acctNumber = AcctNumGenerator();
+//        balance = initialDeposit;
+//        System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
+//        System.out.println(theCustomer + ", Balance " + balance);
+//    }
     
     public BankAccount(String firstName, String lastName, String ssn, double initialDeposit) {
         this.theCustomer = new Customer(firstName, lastName, ssn);
@@ -29,7 +30,7 @@ public class BankAccount implements Comparable<BankAccount>{
         System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
         System.out.println(theCustomer + ", Balance " + balance);
     }
-
+    
     public String AcctNumGenerator() {
 
         String acctNum = "";
@@ -64,7 +65,6 @@ public class BankAccount implements Comparable<BankAccount>{
     }
 
     public void applyInterest() {
-        
     }
 
     public double newBalance(double interest) {
@@ -76,12 +76,16 @@ public class BankAccount implements Comparable<BankAccount>{
         System.out.println(this.theCustomer + ", Balance $" + balance);
     }
 
-//    public void getCustomer() {
-//        System.out.println("The customer's name is " + theCustomer);
-//    }
-
     @Override
-    public int compareTo(BankAccount o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(BankAccount acct) {
+        if (this.balance == acct.balance) {
+            return 0;
+        }
+        else if (this.balance > acct.balance) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
     }
 }
