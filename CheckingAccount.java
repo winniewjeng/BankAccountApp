@@ -11,8 +11,9 @@ public class CheckingAccount extends BankAccount {
     public void applyInterest() {
         super.applyInterest();
         double balance = getBalance();
-        System.out.println("n bad");
 
+        System.out.println("Inside the Checking's applyInterest");
+        
         if (getBalance() > 10000) {
             interest = (balance - 10000) * 0.02;
             newBalance(interest);

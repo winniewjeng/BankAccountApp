@@ -12,7 +12,8 @@ public class SavingAccount extends BankAccount {
         super.applyInterest();
         double balance = getBalance();
         
-        System.out.println("what up");
+        System.out.println("Inside the Saving's applyInterest");
+        
         if (getBalance() > 10000) {
             interest = (balance - 10000) * 0.05;
             newBalance(interest);

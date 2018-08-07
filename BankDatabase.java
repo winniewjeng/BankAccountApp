@@ -44,11 +44,10 @@ public class BankDatabase {
         //Create a saving account
         aNewAcct = new SavingAccount(firstName, lastName, ssn, deposit);
         acctList.add(aNewAcct);
-//        System.out.println("The Current List size is: " + acctList.size());
     }
 
-    //I have problem returning the element of my ArrayList
-
+    //I have problem returning the element of my ArrayList.
+    //I swear this thing doesn't work
     @Override
     public String toString() {
         return "account list: " + acctList.toString();
@@ -56,6 +55,8 @@ public class BankDatabase {
     }
     //This method prints the bank account information in the database in ascending order of the account balances.
     void print() {
+        System.out.println("The Current List size is: " + acctList.size());
+        //Why are you printing address???? T_____T
         System.out.println(acctList.get(0));
         System.out.println(acctList.get(1));
         System.out.println(acctList.get(2));
