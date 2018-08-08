@@ -2,6 +2,7 @@
 public class CheckingAccount extends BankAccount {
 
     private double interest;
+    private double balance;
 
     public CheckingAccount(String firstName, String lastName, String ssn, double initialDeposit) {
         super(firstName, lastName, ssn, initialDeposit);
@@ -10,7 +11,7 @@ public class CheckingAccount extends BankAccount {
     @Override
     public void applyInterest() {
         super.applyInterest();
-        double balance = getBalance();
+        balance = getBalance();
 
         System.out.println("Inside the Checking's applyInterest");
         
@@ -20,5 +21,6 @@ public class CheckingAccount extends BankAccount {
         }
 
     }
+
 
 }

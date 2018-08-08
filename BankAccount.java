@@ -13,8 +13,8 @@ public class BankAccount implements Comparable<BankAccount>{
     private Customer theCustomer;
     private String acctNumber;
     private double balance;
+    private double[] compareAcctBalance = new double[10];
     
-
 //    public BankAccount(Customer theCustomer, double initialDeposit) {
 //        this.theCustomer = theCustomer;
 //        acctNumber = AcctNumGenerator();
@@ -24,7 +24,10 @@ public class BankAccount implements Comparable<BankAccount>{
 //    }
     
     public BankAccount(String firstName, String lastName, String ssn, double initialDeposit) {
+        
+//        System.out.println(firstName + " lalalallala");
         this.theCustomer = new Customer(firstName, lastName, ssn);
+//        System.out.println("theCustomer" + this.theCustomer);
         acctNumber = AcctNumGenerator();  
         balance = initialDeposit;
         System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
@@ -63,6 +66,9 @@ public class BankAccount implements Comparable<BankAccount>{
     public double getBalance() {
         return balance;
     }
+    public String getBalanceStr() {
+        return String.valueOf(balance);
+    } 
 
     public void applyInterest() {
     }
@@ -79,14 +85,23 @@ public class BankAccount implements Comparable<BankAccount>{
     //How do I compare/sort the balance of my account ArrayList is ascending order?
     @Override
     public int compareTo(BankAccount acct) {
-        if (this.balance == acct.balance) {
-            return 0;
-        }
-        else if (this.balance > acct.balance) {
-            return 1;
-        }
-        else {
-            return -1;
-        }
+        
+
+        
+//        if (this.balance == acct.balance) {
+//            return 0;
+//        }
+//        else if (this.balance > acct.balance) {
+//            return 1;
+//        }
+//        else {
+//            return -1;
+//        }
+return 9999;
+    }
+    
+    @Override
+    public String toString() {
+        return theCustomer + ", " + acctNumber + ", Balance " + balance;
     }
 }
