@@ -14,7 +14,6 @@ public class BankAccount implements Comparable<BankAccount> {
     private Customer theCustomer;
     private String acctNumber;
     private double balance;
-    private ArrayList<Double> balanceList = new ArrayList<Double>();
 
 //    public BankAccount(Customer theCustomer, double initialDeposit) {
 //        this.theCustomer = theCustomer;
@@ -30,12 +29,6 @@ public class BankAccount implements Comparable<BankAccount> {
         balance = initialDeposit;
         System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
         System.out.println(theCustomer + ", Balance " + balance);
-    }
-
-    void expandBList() {
-        System.out.println("balance: " + balance);
-        balanceList.add(balance);
-        System.out.println("Size is now " + balanceList.size() );
     }
 
     public String AcctNumGenerator() {
@@ -90,6 +83,7 @@ public class BankAccount implements Comparable<BankAccount> {
     //How do I compare/sort the balance of my account ArrayList is ascending order?
     @Override
     public int compareTo(BankAccount acct) {
+        double balance = getBalance();
 
 //        if (this.balance == acct.balance) {
 //            return 0;
@@ -103,9 +97,9 @@ public class BankAccount implements Comparable<BankAccount> {
         return 9999;
     }
 
+
     @Override
     public String toString() {
-        expandBList();
         return theCustomer + ", " + acctNumber + ", Balance " + balance;
     }
 }

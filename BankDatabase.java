@@ -6,10 +6,11 @@ import java.util.ArrayList;
 
 public class BankDatabase {
 
-    private BankAccount aNewAcct;
+    private BankAccount newAcct;
+    //Initialize an empty array to store customer data
     private ArrayList<BankAccount> acctList = new ArrayList<BankAccount>();
-    
-    
+    //Initialize an empty array to store sorted customer data
+    private ArrayList<BankAccount> sortList = new ArrayList<BankAccount>();
 
     //Constructor
     public BankDatabase() {
@@ -25,10 +26,9 @@ public class BankDatabase {
         lastName = arrOfNames[1];
 
         //Create a checking account
-        aNewAcct = new CheckingAccount(firstName, lastName, ssn, deposit);
+        newAcct = new CheckingAccount(firstName, lastName, ssn, deposit);
         //Expand the ArrayList
-        acctList.add(aNewAcct);
-        
+        acctList.add(newAcct);
 
     }
 
@@ -41,27 +41,45 @@ public class BankDatabase {
         lastName = arrOfNames[1];
 
         //Create a saving account
-        aNewAcct = new SavingAccount(firstName, lastName, ssn, deposit);
+        newAcct = new SavingAccount(firstName, lastName, ssn, deposit);
         //Expand the ArrayList
-        acctList.add(aNewAcct);
+        acctList.add(newAcct);
     }
 
     //This method prints the bank account information in the database in ascending order of the account balances.
     void print() {
 
         for (int i = 0; i < acctList.size(); i++) {
+
             System.out.println(acctList.get(i));
-           
-//            System.out.println("hello " + aNewAcct.getBalance());
+            
+
         }
         
+        
+        double smaller = acctList.get(0).getBalance();
+        System.out.println("smaller " + smaller);
+        for (int i = 1; i < acctList.size(); i++) {
+            
+//            if (acctList.get(i).getBalance() > acctList.get(i).getBalance())
+//            {
+//
+//            }
+
+        }
+
+        
+//        if (acctList.get(i).getBalance() > acctList.get(i + 1).getBalance()) {
+//
+//        }
+
     }
 
     //Have not yet implemented
     //This methods applies interest to all bank accounts. The interest for each type of account is the same as project 5.
     void applyInterest() {
 
-        aNewAcct.applyInterest();
+        newAcct.applyInterest();
     }
 
 //    private static ArrayList<String> getAuthors(String authors) {
