@@ -38,7 +38,6 @@ public static void main(String[] args) {
 
     acctDatabase.print();
     
-    System.out.println("lololol");
 }
 
 }

@@ -1,3 +1,4 @@
+
 import java.util.Random;
 
 //Make the following updates to the BankAccount super class:
@@ -6,15 +7,15 @@ import java.util.Random;
 //2)  The BankAccount super class shall implement the Comparable Interface. 
 //    You shall implement the compareTo method to provide the means to sort the 
 //    bank accounts in the ascending order of the account balance.
+import java.util.ArrayList;
 
-
-public class BankAccount implements Comparable<BankAccount>{
+public class BankAccount implements Comparable<BankAccount> {
 
     private Customer theCustomer;
     private String acctNumber;
     private double balance;
-    private double[] compareAcctBalance = new double[10];
-    
+    private ArrayList<Double> balanceList = new ArrayList<Double>();
+
 //    public BankAccount(Customer theCustomer, double initialDeposit) {
 //        this.theCustomer = theCustomer;
 //        acctNumber = AcctNumGenerator();
@@ -22,18 +23,21 @@ public class BankAccount implements Comparable<BankAccount>{
 //        System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
 //        System.out.println(theCustomer + ", Balance " + balance);
 //    }
-    
     public BankAccount(String firstName, String lastName, String ssn, double initialDeposit) {
-        
-//        System.out.println(firstName + " lalalallala");
+
         this.theCustomer = new Customer(firstName, lastName, ssn);
-//        System.out.println("theCustomer" + this.theCustomer);
-        acctNumber = AcctNumGenerator();  
+        acctNumber = AcctNumGenerator();
         balance = initialDeposit;
         System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
         System.out.println(theCustomer + ", Balance " + balance);
     }
-    
+
+    void expandBList() {
+        System.out.println("balance: " + balance);
+        balanceList.add(balance);
+        System.out.println("Size is now " + balanceList.size() );
+    }
+
     public String AcctNumGenerator() {
 
         String acctNum = "";
@@ -49,45 +53,44 @@ public class BankAccount implements Comparable<BankAccount>{
         return " Account Number " + acctNum;
     }
 
-    public void deposit(double money) {
-        balance += money;
-        System.out.println(theCustomer  + " deposited $" + money + ". Current balance: $" + balance + ".");
-    }
-
-    public void withdraw(double money) {
-        if (balance - money < 0) {
-            System.out.println("Unable to withdraw $" + money + " for " + theCustomer + " due to insufficient funds.");
-        } else {
-            balance -= money;
-            System.out.println(theCustomer + " withdrew $" + money + ". Current balance: $" + balance + ".");
-        }
-    }
-
+//    public void deposit(double money) {
+//        balance += money;
+//        System.out.println(theCustomer + " deposited $" + money + ". Current balance: $" + balance + ".");
+//    }
+//
+//    public void withdraw(double money) {
+//        if (balance - money < 0) {
+//            System.out.println("Unable to withdraw $" + money + " for " + theCustomer + " due to insufficient funds.");
+//        } else {
+//            balance -= money;
+//            System.out.println(theCustomer + " withdrew $" + money + ". Current balance: $" + balance + ".");
+//        }
+//    }
     public double getBalance() {
+
         return balance;
     }
-    public String getBalanceStr() {
-        return String.valueOf(balance);
-    } 
 
+//    public String getBalanceStr() {
+//        return String.valueOf(balance);
+//    }
     public void applyInterest() {
     }
 
     public double newBalance(double interest) {
+
         balance += interest;
         return balance;
     }
-
-    public void checkBalance() {
-        System.out.println(this.theCustomer + ", Balance $" + balance);
-    }
+//
+//    public void checkBalance() {
+//        System.out.println(this.theCustomer + ", Balance $" + balance);
+//    }
 
     //How do I compare/sort the balance of my account ArrayList is ascending order?
     @Override
     public int compareTo(BankAccount acct) {
-        
 
-        
 //        if (this.balance == acct.balance) {
 //            return 0;
 //        }
@@ -97,11 +100,12 @@ public class BankAccount implements Comparable<BankAccount>{
 //        else {
 //            return -1;
 //        }
-return 9999;
+        return 9999;
     }
-    
+
     @Override
     public String toString() {
+        expandBList();
         return theCustomer + ", " + acctNumber + ", Balance " + balance;
     }
 }

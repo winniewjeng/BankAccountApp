@@ -13,7 +13,7 @@ public class CheckingAccount extends BankAccount {
         super.applyInterest();
         balance = getBalance();
 
-        System.out.println("Inside the Checking's applyInterest");
+//        System.out.println("Inside the Checking's applyInterest");
         
         if (getBalance() > 10000) {
             interest = (balance - 10000) * 0.02;

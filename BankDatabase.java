@@ -8,6 +8,8 @@ public class BankDatabase {
 
     private BankAccount aNewAcct;
     private ArrayList<BankAccount> acctList = new ArrayList<BankAccount>();
+    
+    
 
     //Constructor
     public BankDatabase() {
@@ -26,6 +28,7 @@ public class BankDatabase {
         aNewAcct = new CheckingAccount(firstName, lastName, ssn, deposit);
         //Expand the ArrayList
         acctList.add(aNewAcct);
+        
 
     }
 
@@ -45,23 +48,22 @@ public class BankDatabase {
 
     //This method prints the bank account information in the database in ascending order of the account balances.
     void print() {
-        
-        
+
         for (int i = 0; i < acctList.size(); i++) {
             System.out.println(acctList.get(i));
+           
+//            System.out.println("hello " + aNewAcct.getBalance());
         }
+        
     }
 
     //Have not yet implemented
     //This methods applies interest to all bank accounts. The interest for each type of account is the same as project 5.
     void applyInterest() {
-        
-        
-        
+
         aNewAcct.applyInterest();
     }
-    
-    
+
 //    private static ArrayList<String> getAuthors(String authors) {
 //    ArrayList books = new ArrayList<String>();
 //      String[] splitStr = authors.split("\\*");
@@ -70,5 +72,4 @@ public class BankDatabase {
 //       }
 //    return books;
 //}
-
 }
