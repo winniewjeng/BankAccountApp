@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class BankAccount implements Comparable<BankAccount> {
 
+    private BankDatabase database;
     private Customer theCustomer;
     private String acctNumber;
     private double balance;
@@ -27,8 +28,9 @@ public class BankAccount implements Comparable<BankAccount> {
         this.theCustomer = new Customer(firstName, lastName, ssn);
         acctNumber = AcctNumGenerator();
         balance = initialDeposit;
-        System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
-        System.out.println(theCustomer + ", Balance " + balance);
+        //DO NOT DELETE
+  //      System.out.println("Successfully created account for " + theCustomer + " " + acctNumber);
+    //    System.out.println(theCustomer + ", Balance " + balance);
     }
 
     public String AcctNumGenerator() {
@@ -75,26 +77,24 @@ public class BankAccount implements Comparable<BankAccount> {
         balance += interest;
         return balance;
     }
-//
+    
 //    public void checkBalance() {
 //        System.out.println(this.theCustomer + ", Balance $" + balance);
 //    }
 
-    //How do I compare/sort the balance of my account ArrayList is ascending order?
     @Override
     public int compareTo(BankAccount acct) {
-        double balance = getBalance();
-
-//        if (this.balance == acct.balance) {
-//            return 0;
-//        }
-//        else if (this.balance > acct.balance) {
-//            return 1;
-//        }
-//        else {
-//            return -1;
-//        }
-        return 9999;
+        
+        if (this.balance == acct.balance) {
+            return 0;
+        }
+        else if (this.balance > acct.balance) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+        
     }
 
 

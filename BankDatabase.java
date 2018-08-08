@@ -48,31 +48,29 @@ public class BankDatabase {
 
     //This method prints the bank account information in the database in ascending order of the account balances.
     void print() {
-
-        for (int i = 0; i < acctList.size(); i++) {
-
-            System.out.println(acctList.get(i));
-            
-
-        }
-        
-        
-        double smaller = acctList.get(0).getBalance();
-        System.out.println("smaller " + smaller);
-        for (int i = 1; i < acctList.size(); i++) {
-            
-//            if (acctList.get(i).getBalance() > acctList.get(i).getBalance())
-//            {
-//
-//            }
-
-        }
-
-        
-//        if (acctList.get(i).getBalance() > acctList.get(i + 1).getBalance()) {
-//
+//        DO NOT DELETE
+//        for (int i = 0; i < acctList.size(); i++) {
+//            System.out.println(acctList.get(i));
 //        }
 
+        BankAccount temp;
+
+        for (int i = 0; i < acctList.size() ; i++) {
+
+            for (int j = i + 1; j < acctList.size(); j++) {
+//                acctList.get(i).compareTo(acctList.get(j));
+//                System.out.println(acctList.get(i).compareTo(acctList.get(j)));
+                if (acctList.get(i).compareTo(acctList.get(j)) > 0) {
+                    temp = acctList.get(i);
+                    acctList.set(i, acctList.get(j));
+                    acctList.set(j, temp);
+                }
+            }
+        }
+
+        for (int i = 0; i < acctList.size(); i++) {
+            System.out.println(acctList.get(i));
+        }
     }
 
     //Have not yet implemented
@@ -82,12 +80,4 @@ public class BankDatabase {
         newAcct.applyInterest();
     }
 
-//    private static ArrayList<String> getAuthors(String authors) {
-//    ArrayList books = new ArrayList<String>();
-//      String[] splitStr = authors.split("\\*");
-//      for (int i=0;i<splitStr.length;i++) {
-//        books.add(splitStr[i]);
-//       }
-//    return books;
-//}
 }
